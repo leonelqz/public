@@ -1,0 +1,11 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  script: |
+    git fetch --depth=2
+    echo $(git diff --name-only HEAD HEAD~1)
+
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  automapSubstitutions: true
